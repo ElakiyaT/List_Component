@@ -1,0 +1,39 @@
+<!-- ✅ Standard Lists -->
+<div *ngFor="let config of listConfigs">
+  <h2>{{ config.title }}</h2>
+  <app-default-list
+    [title]="config.title"
+    [items]="config.dataSource"
+    [size]="config.size"
+    [header]="config.header"
+    [footer]="config.footer"
+    [bordered]="config.bordered ?? false"
+    [split]="config.split ?? true"
+  ></app-default-list>
+</div>
+
+<!-- ✅ Avatar List Section Below -->
+<h2>Avatar List</h2>
+<app-default-list [avatarItems]="avatarList"></app-default-list>
+
+
+<!-- List Load More -->
+<app-default-list
+  [listItems]="items"
+  header="User List"
+  footer="End of List"
+  [bordered]="true"
+  size="default"
+  [split]="true"
+></app-default-list>
+
+
+<!-- ✅ Vertical List Section (Antd style with avatar, actions, extra) -->
+<h2>Vertical List with Pagination</h2>
+<app-default-list
+  [verticalItems]="verticalList"
+  footer="ant design footer part"
+  [bordered]="true"
+  [split]="true"
+  [pagination]="true"
+></app-default-list>

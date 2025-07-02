@@ -1,0 +1,112 @@
+<ng-container *ngIf="items?.length && !isAvatarList">
+    <div class="list-wrapper" [ngClass]="size" [class.bordered]="bordered">
+      <div class="list-header" *ngIf="header">{{ header }}</div>
+      <ul class="list-body">
+        <li *ngFor="let item of items; let last = last" class="list-item" [class.split]="split && !last">
+          <span class="item-label" *ngIf="size === 'default'">[ITEM]</span>
+          {{ item.text }}
+        </li>
+      </ul>
+  
+      <hr *ngIf="split" class="footer-separator" />
+      <div class="list-footer" *ngIf="footer">{{ footer }}</div>
+    </div>
+  </ng-container>
+
+
+  
+  <ng-container *ngIf="isAvatarList && avatarItems?.length">
+    <section class="avatar-list-wrapper">
+      <ul class="avatar-list-body">
+        <li *ngFor="let item of avatarItems" class="avatar-list-item">
+          <img [src]="item.avatar" class="avatar-img" alt="avatar" />
+          <div class="avatar-meta">
+            <a href="https://ant.design" class="avatar-title">{{ item.title }}</a>
+            <div class="avatar-description">{{ item.description }}</div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </ng-container>
+
+
+  <!-- Render detailed listItems if present -->
+<!-- <ng-container *ngIf="listItems?.length && !isAvatarList">
+    <div class="list-wrapper" [ngClass]="size" [class.bordered]="bordered">
+      <ul class="list-body">
+        <li *ngFor="let item of listItems; let last = last" class="list-item" [class.split]="split && !last">
+          <a *ngIf="item.url; else plainTitle" [href]="item.url" target="_blank" rel="noopener noreferrer" class="item-title">
+            {{ item.title }}
+          </a>
+          <ng-template #plainTitle>
+            <span class="item-title">{{ item.title }}</span>
+          </ng-template>
+  
+          <div class="item-description">{{ item.description }}</div>
+  
+          <div class="item-actions" *ngIf="item.actions?.length">
+            <span *ngFor="let action of item.actions" class="action-text">{{ action }}</span>
+          </div>
+        </li>
+      </ul>
+  
+    </div>
+  </ng-container> -->
+  
+  <ng-container *ngIf="isVerticalList">
+    <section class="custom-list-wrapper" [class.custom-list-bordered]="bordered">
+      <div class="custom-list-inner">
+        <div
+          *ngFor="let item of paginatedItems(); let i = index"
+          class="custom-list-item"
+          [class.custom-list-split]="split && i < paginatedItems().length - 1"
+        >
+          <div class="custom-list-body">
+            <div class="custom-list-meta">
+              <img [src]="item.avatar" class="custom-list-avatar" alt="avatar" />
+              <div class="custom-list-meta-content">
+                <a [href]="item.href" target="_blank" class="custom-list-title">{{ item.title }}</a>
+                <div class="custom-list-description">{{ item.description }}</div>
+              </div>
+            </div>
+            <div class="custom-list-content">{{ item.content }}</div>
+            <div class="custom-list-actions">
+              <span *ngFor="let action of item.actions" class="custom-list-action">
+                <span [ngSwitch]="action.icon">
+                  <span *ngSwitchCase="'star'">★</span>
+                  <span *ngSwitchCase="'like'">👍</span>
+                  <span *ngSwitchCase="'message'">💬</span>
+                </span>
+                <span class="custom-list-action-label">{{ action.label }}</span>
+              </span>
+            </div>
+          </div>
+          <img *ngIf="item.imageUrl" [src]="item.imageUrl" class="custom-list-extra-img" alt="extra" />
+        </div>
+      </div>
+
+      
+      <div class="custom-list-footer" *ngIf="showPagination || footer">
+        <div *ngIf="footer" class="custom-list-footer-text">{{ footer }}</div>
+        <div class="custom-list-pagination" *ngIf="showPagination">
+            <button (click)="prevPage()" [disabled]="currentPage === 1"><</button>
+          
+            <ng-container *ngFor="let page of [].constructor(totalPages); let i = index">
+              <span
+                class="page-button"
+                [class.active-page]="currentPage === i + 1"
+                (click)="currentPage = i + 1"
+              >
+                {{ i + 1 }}
+              </span>
+            </ng-container>
+          
+            <button (click)="nextPage()" [disabled]="currentPage === totalPages">></button>
+          </div>
+          
+      </div>
+    </section>
+  </ng-container>
+  
+
+  
