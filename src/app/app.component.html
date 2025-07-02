@@ -1,39 +1,49 @@
-<!-- ✅ Standard Lists -->
+<!-- Standard Lists -->
 <div *ngFor="let config of listConfigs">
-  <h2>{{ config.title }}</h2>
+  <app-title [listconfig]="config"></app-title>
   <app-default-list
     [title]="config.title"
     [items]="config.dataSource"
     [size]="config.size"
-    [header]="config.header"
-    [footer]="config.footer"
-    [bordered]="config.bordered ?? false"
+    [bordered]="config.bordered ?? true"
     [split]="config.split ?? true"
   ></app-default-list>
 </div>
 
-<!-- ✅ Avatar List Section Below -->
-<h2>Avatar List</h2>
-<app-default-list [avatarItems]="avatarList"></app-default-list>
+<!--  Avatar List Section Below -->
+<app-title [avatarConfig]="avatarTitleConfig"></app-title>
+<app-default-list [avatarItems]="avatarList"  [split]="true"  itemLayout="vertical"> 
+</app-default-list>
 
 
-<!-- List Load More -->
-<app-default-list
-  [listItems]="items"
-  header="User List"
-  footer="End of List"
-  [bordered]="true"
-  size="default"
-  [split]="true"
-></app-default-list>
-
-
-<!-- ✅ Vertical List Section (Antd style with avatar, actions, extra) -->
-<h2>Vertical List with Pagination</h2>
+<!-- Vertical List Section (Antd style with avatar, actions, extra) -->
+<app-title [verticalConfig]="verticalTitleConfig"></app-title>
 <app-default-list
   [verticalItems]="verticalList"
   footer="ant design footer part"
   [bordered]="true"
   [split]="true"
   [pagination]="true"
+  itemLayout="vertical"
+/>
+
+
+
+<!-- GRID -->
+<app-title [settings]="listSettings1"></app-title>
+<app-default-list [settings]="listSettings1"></app-default-list>
+
+<app-title [settings]="listSettings2"></app-title>
+<app-default-list [settings]="listSettings2"></app-default-list>
+
+<!-- SCROLL -->
+<app-title [data]="users" [title]="scrollTitleConfig.title"></app-title>
+<app-default-list [data]="scrollTitleConfig.items" [scrollConfig]="scrollTitleConfig"></app-default-list>
+
+
+
+<!-- VIRTUAL LIST -->
+<app-title [config]="virtualListConfig"></app-title>
+<app-default-list
+  [config]="virtualListConfig"
 ></app-default-list>

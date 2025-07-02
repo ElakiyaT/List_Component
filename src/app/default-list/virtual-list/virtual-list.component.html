@@ -1,0 +1,11 @@
+<div class="ant-list-item" *ngFor="let user of users">
+    <img class="ant-avatar" [src]="user.avatar" alt="avatar" />
+    <div class="ant-user-info">
+      <div class="ant-user-name">
+        <a [href]="config.link || '#'" target="_blank">{{ user.name }}</a>
+      </div>
+      <div class="ant-user-email">{{ user.email }}</div>
+    </div>
+    <div class="ant-user-meta">Content</div>
+  </div>
+  

@@ -1,0 +1,42 @@
+.avatar-list-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0; /* default padding */
+  }
+  
+  /* Extra padding for horizontal layout */
+  .horizontal-padding {
+    padding: 30px 0; /* increased top-bottom padding for horizontal layout */
+  }
+  
+  .split-line {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .avatar-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    border-radius: 50%;
+  }
+  
+  .avatar-meta {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .avatar-title {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 4px;
+  }
+  
+  .avatar-title:hover {
+    color: rgba(15, 124, 248, 0.863);
+  }
+  
+  .avatar-description {
+    color: #888;
+  }
+  

@@ -1,0 +1,15 @@
+<div class="list-item-scroll">
+    <div class="avatar-wrapper">
+      <img [src]="item.avatar" alt="avatar" class="avatar" />
+    </div>
+    <div class="text-wrapper">
+      <div class="name">
+        <a [href]="item.link" target="_blank" rel="noopener noreferrer">{{ item.name }}</a>
+      </div>
+      <div class="email">{{ item.email }}</div>
+    </div>
+    <div class="content-scroll">
+      {{ item.contents }}
+    </div>
+  </div>
+  

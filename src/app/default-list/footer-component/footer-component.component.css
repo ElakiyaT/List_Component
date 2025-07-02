@@ -1,0 +1,72 @@
+.list-header,
+.list-footer {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  padding: 0;
+  font-weight: normal; /* same weight as items */
+  color: inherit; /* same color as list text */
+  font-size: 16px; /* default font size */
+  border-bottom: 1px solid #f0f0f0; /* same underline color as row border */
+  box-sizing: border-box;
+  width: 100%;
+  font-family: Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;;
+}
+
+
+.custom-list-pagination {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    gap: 8px;
+    padding: 20px 0;
+    font-family: Avenir, sans-serif;
+    user-select: none;
+  }
+  
+  .custom-list-pagination button {
+    border: 1px solid #d9d9d9;
+    padding: 4px 10px;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-list-pagination button:hover:not(:disabled) {
+    border-color: #1890ff;
+    color: #1890ff;
+  }
+  
+  .custom-list-pagination button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  .custom-list-pagination .page-button {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-list-pagination .active-page {
+    background-color: white;
+    color: black;
+    border-color: #1890ff;
+  }
+  
+  .custom-list-footer {
+    padding: 6px 12px;
+    border-top: 1px solid #f0f0f0;
+    text-align: left;
+    font-weight: 500;
+    font-family: Avenir, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji',
+      sans-serif;
+  }
+  

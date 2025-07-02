@@ -1,0 +1,11 @@
+<li class="avatar-list-item" 
+[ngClass]="[
+hasSplit ? 'split-line' : '',
+itemLayout === 'horizontal' ? 'horizontal-padding' : ''
+]">
+  <img [src]="item.avatar" class="avatar-img" alt="avatar" />
+  <div class="avatar-meta">
+    <a [href]="item.link" class="avatar-title">{{ item.title }}</a>
+    <div class="avatar-description">{{ item.description }}</div>
+  </div>
+</li>

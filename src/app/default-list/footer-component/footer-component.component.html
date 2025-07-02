@@ -1,0 +1,24 @@
+<div class="list-footer">{{ text }}
+    
+</div>
+
+
+<div class="custom-list-footer" *ngIf="showPagination || footer">
+    <div *ngIf="footer" class="custom-list-footer-text">{{ footer }}</div>
+  
+    <div class="custom-list-pagination" *ngIf="showPagination">
+      <button (click)="onPrevClick()" [disabled]="currentPage === 1">&lt;</button>
+  
+      <ng-container *ngFor="let page of [].constructor(totalPages); let i = index">
+        <span
+          class="page-button"
+          [class.active-page]="currentPage === i + 1"
+          (click)="onPageSelect(i + 1)"
+        >
+          {{ i + 1 }}
+        </span>
+      </ng-container>
+  
+      <button (click)="onNextClick()" [disabled]="currentPage === totalPages">&gt;</button>
+    </div>
+  </div>

@@ -1,0 +1,33 @@
+<div
+  *ngFor="let item of items; let i = index"
+  class="custom-list-item"
+  [class.custom-list-split]="split && i < items.length - 1"
+  [ngClass]="{
+    'layout-horizontal': itemLayout === 'horizontal',
+    'layout-vertical': itemLayout === 'vertical'
+  }"
+>
+  <div class="custom-list-body">
+    <div class="custom-list-meta">
+      <img [src]="item.avatar" class="custom-list-avatar" alt="avatar" />
+      <div class="custom-list-meta-content">
+        <a [href]="item.href" target="_blank" class="custom-list-title">{{ item.title }}</a>
+        <div class="custom-list-description">{{ item.description }}</div>
+      </div>
+    </div>
+    <div class="custom-list-content">{{ item.content }}</div>
+    <div class="custom-list-actions">
+      <span *ngFor="let action of item.actions" class="custom-list-action">
+        <span class="custom-list-action-icon">{{ action.icon }}</span>
+        <span class="custom-list-action-label">{{ action.label }}</span>
+      </span>
+    </div>
+  </div>
+  <img
+    *ngIf="item.imageUrl"
+    [src]="item.imageUrl"
+    loading="lazy"
+    class="custom-list-extra-img"
+    alt="extra"
+  />
+</div>

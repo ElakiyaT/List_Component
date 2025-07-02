@@ -1,0 +1,7 @@
+<ul class="list-body">
+    <li *ngFor="let item of items; let last = last" class="list-item" [class.split]="split && !last">
+      <span class="item-label" *ngIf="size === 'default'">[ITEM]</span>
+      {{ item.text }}
+    </li>
+  </ul>
+  
